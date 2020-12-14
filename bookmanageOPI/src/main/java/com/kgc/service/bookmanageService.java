@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface bookmanageService {
     List<Bookmanage> selectByExample(BookmanageExample example);
+
+    int delect(Integer id);
 }

@@ -12,12 +12,17 @@ import java.util.List;
 
 @Component
 @Service
-public class bookmanageServiceImpl implements bookmanageService {
+public class bookmanageServiceImpl implements bookmanageService{
     @Resource
     BookmanageMapper bookmanageMapper;
 
     @Override
     public List<Bookmanage> selectByExample(BookmanageExample example) {
         return bookmanageMapper.selectByExample(example);
+    }
+
+    @Override
+    public int delect(Integer id) {
+        return bookmanageMapper.deleteByPrimaryKey(id);
     }
 }
