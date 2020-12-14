@@ -20,7 +20,8 @@ public class BookCotrollercx {
     }
 
     @RequestMapping("/updBook")
-    public String udpBook(Bookmanage bookmanage){
+    public String udpBook(Bookmanage bookmanage,Integer id){
+        bookmanage.setId(id);
         bookServicecx.updBook(bookmanage);
         return "redirect:/";
     }

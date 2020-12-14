@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/updBook(${book.id})}" method="post">
+<form th:action="@{/updBook(id=${book.id})}" method="post">
     <h3>修改图书信息</h3>
     <p>图书名称: <input type="text" name="name" th:value="${book.name}"></p>
     <p>图书作者: <input type="text" name="author" th:value="${book.author}"></p>

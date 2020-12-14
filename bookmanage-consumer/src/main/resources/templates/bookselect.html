@@ -23,7 +23,7 @@
                 <td th:text="${b.author}">作者</td>
                 <td th:text="${#dates.format(b.time,'yyyy-MM-dd')}">出版社</td>
                 <td  th:text="${b.type}">出版社</td>
-                <td><a th:href="@{/delete(id=${b.id})}">删除</a>|<a th:href="@{/chaupdate(id=${b.id})}">修改</a></td>
+                <td><a th:href="@{/delete(id=${b.id})}">删除</a>|<a th:href="@{/toUpdBook(id=${b.id})}">修改</a></td>
             </tr>
         </table>
     </div>
