@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <div>
+        <a th:href="@{/toadd}">新增图书信息</a>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>图书名称</th>
+                <th>图书作者</th>
+                <th>购买时间</th>
+                <th>图书分类</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="b:${bookmanages}">
+                <td th:text="${b.name}">书名</td>
+                <td th:text="${b.author}">作者</td>
+                <td th:text="${#dates.format(b.time,'yyyy-MM-dd')}">出版社</td>
+                <td  th:text="${b.type}">出版社</td>
+                <td><a th:href="@{/delete(id=${b.id})}">删除</a>|<a th:href="@{/chaupdate(id=${b.id})}">修改</a></td>
+            </tr>
+        </table>
+    </div>
+
+</center>
+
+</body>
+</html>
