@@ -20,4 +20,9 @@ public class bookmanageServiceImpl implements bookmanageService {
     public List<Bookmanage> selectByExample(BookmanageExample example) {
         return bookmanageMapper.selectByExample(example);
     }
+
+    @Override
+    public int add(Bookmanage bookmanage) {
+        return bookmanageMapper.insert(bookmanage);
+    }
 }
