@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/updBook(${book.id})}" method="post">
+    <h3>修改图书信息</h3>
+    <p>图书名称: <input type="text" name="name" th:value="${book.name}"></p>
+    <p>图书作者: <input type="text" name="author" th:value="${book.author}"></p>
+    <p>购买日期: <input type="text" name="time" th:value="${book.time}">YYYY-MM-DD格式</p>
+    <p>
+        图书类别:
+        <select name="type">
+            <option value="0" th:selected="${book.type}">--请选择所属分类--</option>
+            <option value="1" th:selected="${book.type}">计算机/软件</option>
+            <option value="2" th:selected="${book.type}">小说/文摘</option>
+            <option value="3" th:selected="${book.type}">杂志</option>
+        </select>
+    </p>
+    <p><input type="submit" value="修改图书"> </p>
+</form>
+<script type="text/javascript">
+    $("form").submit(function(){
+        var name=$("[name='name']").val();
+        if(name==""){
+            alert("图书名称不能为空");
+            return false;
+        }
+        var author=$("[name='author']").val();
+        if(author==""){
+            alert("图书作者不能为空");
+            return false;
+        }
+        var reg=/^\d{4}-\d{2}-\d{2}$/;
+        var time=$("[name='time']").val();
+        if(reg.test(time)==false){
+            alert("购买日期格式不正确");
+            return false;
+        }
+        var type=$("[name='type']").val();
+        if(type==0){
+            alert("请选择图书分类");
+            return false;
+        }
+        return true;
+    })
+</script>
+</body>
+</html>
